@@ -35,3 +35,6 @@ jobs:
     - name: Typescript test
       run: npm run test
       working-directory: ./DotnetTemplate.Web
+
+    - name: Push to Github
+      run: docker push bobinaki/dotnettemplate:latest 
