@@ -40,7 +40,7 @@ jobs:
       run: docker build -t bobinaki/dotnettemplate:latest -t bobinaki/dotnettemplate:${{github.sha}} .
 
     - name: Login to docker
-      run: docker echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin 
+      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin 
 
 
     - name: Push to Github
