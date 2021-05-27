@@ -37,4 +37,5 @@ jobs:
       working-directory: ./DotnetTemplate.Web
 
     - name: Push to Github
+      run: docker build -t bobinaki/dotnettemplate:latest .
       run: docker push bobinaki/dotnettemplate:latest 
