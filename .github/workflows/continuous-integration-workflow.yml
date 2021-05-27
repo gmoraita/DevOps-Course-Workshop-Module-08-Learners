@@ -37,7 +37,11 @@ jobs:
       working-directory: ./DotnetTemplate.Web
 
     - name: Build the image
-      run: docker build -t bobinaki/dotnettemplate:latest .
+      run: docker build -t bobinaki/dotnettemplate:latest -t bobinaki/dotnettemplate:${{github.sha}} .
+
+    - name: Login to docker
+      run: docker echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin 
+
 
     - name: Push to Github
-      run: docker push bobinaki/dotnettemplate:latest 
+      run: docker push bobinaki/dotnettemplate:latest bobinaki/dotnettemplate:${{github.sha}}
