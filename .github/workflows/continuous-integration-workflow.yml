@@ -36,6 +36,8 @@ jobs:
       run: npm run test
       working-directory: ./DotnetTemplate.Web
 
-    - name: Push to Github
+    - name: Build the image
       run: docker build -t bobinaki/dotnettemplate:latest .
+
+    - name: Push to Github
       run: docker push bobinaki/dotnettemplate:latest 
